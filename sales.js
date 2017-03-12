@@ -1,7 +1,7 @@
 
-var allTheProductsDOM = document.getElementById("productsContainer");
+var allProductsDOM = document.getElementById("productsContainer");
 var departments;
-var allTheProductsData;
+var allProductsData;
 
 
 
@@ -10,15 +10,13 @@ var allTheProductsData;
 // grouped by department (category)
 //*******************************************************
 function writeProductsDOM (products, season) {
-console.log("chosen season :: ", season);
-console.log("products", products);
 
 	var productString = `<h1>Current Products</h1>`;
 	var currentDept;
 	var thisProduct;
 
 	productString += `<section class="sectionHeader">`
-	// loop by departments first
+	// loop by departments (category) first
 	for (var i=0; i<departments.categories.length; i++) {
 
 		currentDept = departments.categories[i];
@@ -29,20 +27,24 @@ console.log("products", products);
 
 			thisProduct = products.products[j];
 			if (thisProduct.category_id === currentDept.id) {
-				productString += `<p class="productSpecs">${thisProduct.name}, $${calcPrice(thisProduct.price, season)}</p>`;
+				productString += `<p class="productSpecs">${thisProduct.name}, `;
+				productString += `$${calcPrice(thisProduct.price, season)}</p>`;
 
 			} // if
 		} // <j> for loop
+
 		productString += `</div>`;
+
 	} // <i> for loop
+
 	productString +- `</section>`;
-	allTheProductsDOM.innerHTML = productString;
+	allProductsDOM.innerHTML = productString;
 }
 
 
 //*******************************************************
 // function RETURNS a STRING of the department name
-// takes as parameter the department ID
+// takes as PARAMETER the Department ID
 //*******************************************************
 function getDepartment (deptID) {
 	return departments.categories[deptID].name;
@@ -52,9 +54,11 @@ function getDepartment (deptID) {
 //*******************************************************
 // function RETURNS the price of the product passed in
 // discounted by the amount defined for the indicated season
+// PARAMETERS: the product base price, 
+//   and either the iniatialized state <initState>, 
+//   or the user selected season
 //*******************************************************
 function calcPrice (thisProductBasePrice, thisSeason) {
-console.log("in calcPrice :: ");
 
 	var tenPercent;
 	var twentyFivePercent;
@@ -66,19 +70,31 @@ console.log("in calcPrice :: ");
 	} else if 
 		(thisSeason === "winter") { // discount is 10%
 		tenPercent = thisProductBasePrice * 0.1;
-		return thisProductBasePrice - tenPercent;
+		return roundedPrice(thisProductBasePrice - tenPercent);
 
 	} else if 
 		(thisSeason === "autumn") { // discount is 25%
 		twentyFivePercent = thisProductBasePrice * 0.25;
-		return thisProductBasePrice - twentyFivePercent;
+		return roundedPrice(thisProductBasePrice - twentyFivePercent);
 
 	} else if 
 		(thisSeason === "spring") { // discount is 15%
 		fifteenPercent = thisProductBasePrice * 0.15;
-		return thisProductBasePrice - fifteenPercent;
+		return roundedPrice(thisProductBasePrice - fifteenPercent);
 	}
 }
+
+
+//*******************************************************
+// function rounds the calculated discounted price
+// RETURNS the rounded amount
+// PARAMETER: the unrounded amount
+//*******************************************************
+function roundedPrice(unroundedAmount) {
+
+	return (Math.round(unroundedAmount * 100) / 100);
+}
+
 
 
 //*******************************************************
@@ -99,8 +115,8 @@ function executeCategoriesDOMAfterFileLoaded(){
 function executeProductsDOMAfterFileLoaded(){
 
 	var productsData = JSON.parse(this.responseText);
-	allTheProductsData = productsData;
-	writeProductsDOM(allTheProductsData, "initState");
+	allProductsData = productsData;
+	writeProductsDOM(allProductsData, "initState");
 }
 
 
@@ -138,14 +154,18 @@ selectedSeason.addEventListener("change", function() {
 });
 
 
+//**************************************************
+// function reads the user-selected choice
+// from the <select> element
+// and calls v=the function <writeProductsDOM>
+// to rewrite the DOM, passing the selected <season>
+// so the appropriate discount will be calculated
+// and displayed
+//**************************************************
 function getThisSeason (clickEvent) {
 
 	var chosenSeason = selectedSeason.value;
-	writeProductsDOM(allTheProductsData, chosenSeason);
-// console.log("in getSeason Discount");
-// console.log("selectedSeason :: ", selectedSeason);
-// console.log("selectedSeason.value :: ", chosenSeason);
-	
+	writeProductsDOM(allProductsData, chosenSeason);
 }
 
 
