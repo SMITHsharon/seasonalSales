@@ -3,41 +3,36 @@ var allTheProducts = document.getElementById("productsContainer");
 var departments;
 
 function writeProductsDOM (products) {
-console.log("writing products to DOM");
-console.log("products data :: ", products);
-console.log("departments :: ", departments);
+// console.log("writing products to DOM");
+// console.log("products data :: ", products);
+// console.log("departments :: ", departments);
 	// write the products to the DOM
 	var productString = `<h1 class="sectionHeader">Current Products</h1>`;
 	var currentProduct;
 	var currentDept;
+	var thisProduct;
+// console.log("departments, in writeProductsDOM :: ", departments);
+// console.log("departments.categories.length :: ", departments.categories.length);
 
-	for (var i=0; i<departments.length; i++) {
-		currentDept = categories[i];
-		currentProduct =+ `<p>${getDepartment(j)}</p>`;
-		for (var j=0; j<products.length; j++) {
-			if (products[j].category_id === departments[i].id) {
-				currentProduct += `<p>${products[j].name}, $${products[j].price}</p>`;
+	for (var i=0; i<departments.categories.length; i++) {
+		currentDept = departments.categories[i];
+
+// console.log("currentDept :: ", currentDept);
+		currentProduct =+ `<div><p>${getDepartment(i)}</p>`;
+// console.log("products :: ", products);
+// console.log("products.products.length :: ", products.products.length);
+		for (var j=0; j<products.products.length; j++) {
+			thisProduct = products.products[j];
+// console.log("in products loop");
+			if (thisProduct.category_id === currentDept.id) {
+				console.log("thisProduct.category_id :: ", thisProduct.category_id);
+				console.log("currentDept.id :: ", currentDept.id);
+				currentProduct += `<p>${products.products[j].name}, $${products.products[j].price}</p></div>`;
 			}
 		} // <j> for loop
+
+		productString += currentProduct;
 	} // <i> for loop
-		
-			// productString += `<div class="department">`;
-			// productString += `<h3>${getDepartment(myRequest2, currentProduct.category_id)}</h3>`;
-			// console.log("myRequest2 :: ", myRequest2);
-			// console.log("currentProduct.category_id :: ", currentProduct.category_id);
-
-			// for (var j=0; j<currentProduct.types.length; j++) {
-				// productString += `<p class="thisType">${cleanedProductString(currentProduct.types[j].type)}</p>`;
-				
-
-				// for (var k=0; k<currentProduct.types[j].volumes.length; k++) {
-					// productString += `<p class="thisPrice">${currentProduct.types[j].volumes[k].name}: `
-					// productString += `$${currentProduct.types[j].volumes[k].price}</p>`;
-				// } // k loop
-			// } // j loop	
-
-			// productString += `</div>`;
-	// } // <i> for loop
 
 	allTheProducts.innerHTML = productString;
 	
@@ -46,8 +41,9 @@ console.log("departments :: ", departments);
 
 function getDepartment (deptID) {
 	console.log("getting Department ID");
-	console.log("departments[deptID].name :: ", departments[deptID].name);
-	return departments[deptID].name;
+	console.log("deptID :: ", deptID);
+	console.log("departments[deptID].name :: ", departments.categories[deptID].name);
+	return departments.categories[deptID].name;
 }
 
 
