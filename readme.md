@@ -9,11 +9,18 @@ This assignment
 
 
 ### Project Specs
-Your job is to build a web page that lists all of the products, the name of the department it's in, and the price. Additionally, put a <select> element at the top of the page that contains all possible values of the season_discount key in the categories file. As soon as you select one of the seasons, all prices on the page should immediately be discounted by the corresponding percentage.
+#### Process XHR Requests
+- The two JSON representations were provided in two files: `products.json`, and `categories.json`. 
+- Loaded both files via XHRs and stored the contents in two different JavaScript variables, `productsData` and `categoriesData`.
+
+####
+- Displayed all of the products, including for each the name of the department it's in, and the price.
+
+ Additionally, put a <select> element at the top of the page that contains all possible values of the season_discount key in the categories file. As soon as you select one of the seasons, all prices on the page should immediately be discounted by the corresponding percentage.
 
 For example, when Spring is chosen, all products in the corresponding Household category should have their prices updated with a 15% discount off the base price.
 
-The two JSON representations above should be in two files: products.json, and categories.json. You should load both file via XHRs and store the contents in two different JavaScript variables in your code.
+
 
 
 
