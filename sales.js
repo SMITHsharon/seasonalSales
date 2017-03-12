@@ -57,26 +57,27 @@ function calcPrice (thisProductBasePrice, thisSeason) {
 console.log("in calcPrice :: ");
 
 	var tenPercent;
+	var twentyFivePercent;
+	var fifteenPercent;
+
 	if (thisSeason === "initState") {
 		return thisProductBasePrice;
 
 	} else if 
-		(thisSeason === "winter") {
+		(thisSeason === "winter") { // discount is 10%
 		tenPercent = thisProductBasePrice * 0.1;
 		return thisProductBasePrice - tenPercent;
+
+	} else if 
+		(thisSeason === "autumn") { // discount is 25%
+		twentyFivePercent = thisProductBasePrice * 0.25;
+		return thisProductBasePrice - twentyFivePercent;
+
+	} else if 
+		(thisSeason === "spring") { // discount is 15%
+		fifteenPercent = thisProductBasePrice * 0.15;
+		return thisProductBasePrice - fifteenPercent;
 	}
-	
-		
-
-		// case (thisSeason = "winter"):
-		// return ;
-
-		// case (thisSeason = "autumn"):
-		// return ;
-
-		// case (thisSeason = "spring"):
-		// return ;
-	// }
 }
 
 
