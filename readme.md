@@ -18,7 +18,7 @@ This assignment
 - Styling of the page output is discretionary. 
 - Added a `select` element listing the Seasons: *Winter#, *Autumn*, *Spring*.
 
- Additionally, put a <select> element at the top of the page that contains all possible values of the season_discount key in the categories file. As soon as you select one of the seasons, all prices on the page should immediately be discounted by the corresponding percentage.
+  As soon as you select one of the seasons, all prices on the page should immediately be discounted by the corresponding percentage.
 
 For example, when Spring is chosen, all products in the corresponding Household category should have their prices updated with a 15% discount off the base price.
 

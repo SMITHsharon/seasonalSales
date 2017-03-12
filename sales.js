@@ -1,6 +1,7 @@
 
-var allTheProducts = document.getElementById("productsContainer");
+var allTheProductsDOM = document.getElementById("productsContainer");
 var departments;
+var allTheProductsData;
 
 
 
@@ -8,7 +9,9 @@ var departments;
 // function writes the products data to the DOM, 
 // grouped by department (category)
 //*******************************************************
-function writeProductsDOM (products) {
+function writeProductsDOM (products, season) {
+console.log("chosen season :: ", season);
+console.log("products", products);
 
 	var productString = `<h1>Current Products</h1>`;
 	var currentDept;
@@ -26,13 +29,14 @@ function writeProductsDOM (products) {
 
 			thisProduct = products.products[j];
 			if (thisProduct.category_id === currentDept.id) {
-				productString += `<p class="productSpecs">${thisProduct.name}, $${thisProduct.price}</p>`;
+				productString += `<p class="productSpecs">${thisProduct.name}, $${calcPrice(thisProduct.price, season)}</p>`;
+
 			} // if
 		} // <j> for loop
 		productString += `</div>`;
 	} // <i> for loop
 	productString +- `</section>`;
-	allTheProducts.innerHTML = productString;
+	allTheProductsDOM.innerHTML = productString;
 }
 
 
@@ -44,6 +48,36 @@ function getDepartment (deptID) {
 	return departments.categories[deptID].name;
 }
 
+
+//*******************************************************
+// function RETURNS the price of the product passed in
+// discounted by the amount defined for the indicated season
+//*******************************************************
+function calcPrice (thisProductBasePrice, thisSeason) {
+console.log("in calcPrice :: ");
+
+	var tenPercent;
+	if (thisSeason === "initState") {
+		return thisProductBasePrice;
+
+	} else if 
+		(thisSeason === "winter") {
+		tenPercent = thisProductBasePrice * 0.1;
+		return thisProductBasePrice - tenPercent;
+	}
+	
+		
+
+		// case (thisSeason = "winter"):
+		// return ;
+
+		// case (thisSeason = "autumn"):
+		// return ;
+
+		// case (thisSeason = "spring"):
+		// return ;
+	// }
+}
 
 
 //*******************************************************
@@ -64,7 +98,8 @@ function executeCategoriesDOMAfterFileLoaded(){
 function executeProductsDOMAfterFileLoaded(){
 
 	var productsData = JSON.parse(this.responseText);
-	writeProductsDOM(productsData);
+	allTheProductsData = productsData;
+	writeProductsDOM(allTheProductsData, "initState");
 }
 
 
@@ -92,7 +127,25 @@ myRequest.send();
 
 
 
+//**************************************************
+// event handler for <select> element
+//**************************************************
+var selectedSeason = document.getElementById("selectElement");
 
+selectedSeason.addEventListener("change", function() {
+    getThisSeason();
+});
+
+
+function getThisSeason (clickEvent) {
+
+	var chosenSeason = selectedSeason.value;
+	writeProductsDOM(allTheProductsData, chosenSeason);
+// console.log("in getSeason Discount");
+// console.log("selectedSeason :: ", selectedSeason);
+// console.log("selectedSeason.value :: ", chosenSeason);
+	
+}
 
 
 
