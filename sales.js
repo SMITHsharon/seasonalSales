@@ -2,62 +2,66 @@
 var allTheProducts = document.getElementById("productsContainer");
 var departments;
 
+
+
+//*******************************************************
+// function writes the products data to the DOM, 
+// grouped by department (category)
+//*******************************************************
 function writeProductsDOM (products) {
-// console.log("writing products to DOM");
-// console.log("products data :: ", products);
-// console.log("departments :: ", departments);
-	// write the products to the DOM
+
 	var productString = `<h1 class="sectionHeader">Current Products</h1>`;
-	var currentProduct;
 	var currentDept;
 	var thisProduct;
-// console.log("departments, in writeProductsDOM :: ", departments);
-// console.log("departments.categories.length :: ", departments.categories.length);
 
+	// loop by departments first
 	for (var i=0; i<departments.categories.length; i++) {
+
 		currentDept = departments.categories[i];
+		productString += `<div><p>${getDepartment(i)}</p>`;
 
-// console.log("currentDept :: ", currentDept);
-		currentProduct =+ `<div><p>${getDepartment(i)}</p>`;
-// console.log("products :: ", products);
-// console.log("products.products.length :: ", products.products.length);
+		// then collect the products in those departments
 		for (var j=0; j<products.products.length; j++) {
-			thisProduct = products.products[j];
-// console.log("in products loop");
-			if (thisProduct.category_id === currentDept.id) {
-				console.log("thisProduct.category_id :: ", thisProduct.category_id);
-				console.log("currentDept.id :: ", currentDept.id);
-				currentProduct += `<p>${products.products[j].name}, $${products.products[j].price}</p></div>`;
-			}
-		} // <j> for loop
 
-		productString += currentProduct;
+			thisProduct = products.products[j];
+			if (thisProduct.category_id === currentDept.id) {
+				productString += `<p>${thisProduct.name}, $${thisProduct.price}</p></div>`;
+			} // if
+		} // <j> for loop
 	} // <i> for loop
 
 	allTheProducts.innerHTML = productString;
-	
 }
 
 
+//*******************************************************
+// function RETURNS a STRING of the department name
+// takes as parameter the department ID
+//*******************************************************
 function getDepartment (deptID) {
-	console.log("getting Department ID");
-	console.log("deptID :: ", deptID);
-	console.log("departments[deptID].name :: ", departments.categories[deptID].name);
 	return departments.categories[deptID].name;
 }
 
 
+
+//*******************************************************
+// function assigns the parsed data from categories.json
+// to the global variable <departments>
+//*******************************************************
 function executeCategoriesDOMAfterFileLoaded(){
+
 	var categoriesData = JSON.parse(this.responseText);
-// console.log("categories data :: ", categoriesData);
 	departments = categoriesData;
-// console.log("departments :: ", departments);
 }
 
 
+//*******************************************************
+// function calls the function <writeProductsDOM>, 
+// and passes the parsed data from products.json
+//*******************************************************
 function executeProductsDOMAfterFileLoaded(){
+
 	var productsData = JSON.parse(this.responseText);
-// console.log("products data :: ", productsData);
 	writeProductsDOM(productsData);
 }
 
