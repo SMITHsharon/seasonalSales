@@ -10,26 +10,28 @@ var departments;
 //*******************************************************
 function writeProductsDOM (products) {
 
-	var productString = `<h1 class="sectionHeader">Current Products</h1>`;
+	var productString = `<h1>Current Products</h1>`;
 	var currentDept;
 	var thisProduct;
 
+	productString += `<section class="sectionHeader">`
 	// loop by departments first
 	for (var i=0; i<departments.categories.length; i++) {
 
 		currentDept = departments.categories[i];
-		productString += `<div><p>${getDepartment(i)}</p>`;
+		productString += `<div class="thisDepartment"><p class="deptName">${getDepartment(i)}</p>`;
 
 		// then collect the products in those departments
 		for (var j=0; j<products.products.length; j++) {
 
 			thisProduct = products.products[j];
 			if (thisProduct.category_id === currentDept.id) {
-				productString += `<p>${thisProduct.name}, $${thisProduct.price}</p></div>`;
+				productString += `<p class="productSpecs">${thisProduct.name}, $${thisProduct.price}</p>`;
 			} // if
 		} // <j> for loop
+		productString += `</div>`;
 	} // <i> for loop
-
+	productString +- `</section>`;
 	allTheProducts.innerHTML = productString;
 }
 

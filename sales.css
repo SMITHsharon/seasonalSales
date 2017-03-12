@@ -1,5 +1,49 @@
 
 body { 
 	background-color: lightcyan;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+
+/*********************************************/
+/* flex specs
+/*********************************************/
+
+/*#productsContainer {
+	display: flex;
+	flex-flow: row wrap;
+	max-width: 80%;
+}*/
+
+.sectionHeader {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	max-width: 80%;
+	margin: auto;
+}
+
+.thisDepartment {
+	border: 2px solid slategrey;
+	border-radius: 5%;
+	background-color: ivory;
+	width: 30%;
+	padding-left: 10px;
+}
+
+
+/*********************************************/
+/* text
+/*********************************************/
+
+h1 {
+	text-align: center;
+}
+.deptName {
+	font-weight: 900;
+	font-size: 1.2em;
+}
+
+.productSpecs {
+	padding-left: 20px;
 }

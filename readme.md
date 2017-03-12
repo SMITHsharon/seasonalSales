@@ -14,7 +14,9 @@ This assignment
 - Loaded both files via XHRs and stored the contents in two different JavaScript variables, `productsData` and `categoriesData`.
 
 ####
-- Displayed all of the products, including for each the name of the department it's in, and the price.
+- Displayed all of the products, grouped by category, and the price.
+- Styling of the page output is discretionary. 
+
 
  Additionally, put a <select> element at the top of the page that contains all possible values of the season_discount key in the categories file. As soon as you select one of the seasons, all prices on the page should immediately be discounted by the corresponding percentage.
 
