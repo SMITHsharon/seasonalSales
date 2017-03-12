@@ -39,6 +39,11 @@ body {
 h1 {
 	text-align: center;
 }
+
+#selectElement {
+	margin-left: 45%;
+}
+
 .deptName {
 	font-weight: 900;
 	font-size: 1.2em;
