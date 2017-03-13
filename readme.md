@@ -1,37 +1,40 @@
 # NSS Seasonal Sales
 
 ### Project Description 
-This assignment 
-#### User Input Screen
-![Seasonal Sales Output Screen](https:......png)
+This assignment reads and displays department store information from two `JSON` files: 
+- one providing information about products, pricing, and the department where they are sold
+- the other providing information about the departments, as well as the discount percentage for a particular season
+
+Additionally, a `select` element is provided, giving the user the ability to select a *season*, upon which the discounted prices for the products display. 
+
+#### Seasonal Sales Screen at Initial State
+![Seasonal Sales Screen at Initial State](https://raw.githubusercontent.com/SMITHsharon/seasonalSales/screens/screens/Seasonal%20Sales%20Init%20State%20Screen%20Grab.png)
 
 
+#### Seasonal Sales Screen Upon User Selecting *Autumn*
+![Seasonal Sales Screen Upon User Selecting Autumn](https://raw.githubusercontent.com/SMITHsharon/seasonalSales/screens/screens/Season%20Sales%20Autumn%20Discounts%20Screen%20Grab.png)
 
 
 ### Project Specs
-#### Process XHR Requests
-- The two JSON representations were provided in two files: `products.json`, and `categories.json`. 
+##### Process XHR Requests
+- The two JSON representations were provided in files: `products.json`, and `categories.json`. 
 - Loaded both files via XHRs and stored the contents in two different JavaScript variables, `productsData` and `categoriesData`.
 
-####
-- Displayed all of the products, grouped by category, and the price.
-- Styling of the page output is discretionary. 
-- Added a `select` element listing the Seasons: *Winter#, *Autumn*, *Spring*.
+##### Write the Data to the DOM
+- Displayed all of the products, grouped by category, and the respective prices.
+- Styling of the page output is discretionary; used `css flexbox`. 
 
-  As soon as you select one of the seasons, all prices on the page should immediately be discounted by the corresponding percentage.
-
-For example, when Spring is chosen, all products in the corresponding Household category should have their prices updated with a 15% discount off the base price.
-
-
-
-
+##### Rewrite Data, Showing Discounted Prices for User-Selected Season
+- Added a `select` element listing the Seasons: *Winter*, *Autumn*, *Spring*.
+- Upon the user selecting a Season from the `select` element, the discounted prices for that Season are calculated (and rounded), and the new content is written to the DOM.  
 
 
 ### Technologies Used
-- html
-- css
-- javascript
-- XHR and JSON request
+- `html`
+- `css`
+- `javascript`
+- `XHR` and `JSON` request
+>>>>>>> master
 
 
 ### How To View The Screen 
