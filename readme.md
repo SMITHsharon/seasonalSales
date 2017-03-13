@@ -8,11 +8,11 @@ This assignment reads and displays department store information from two `JSON` 
 Additionally, a `select` element is provided, giving the user the ability to select a *season*, upon which the discounted prices for the products display. 
 
 #### Seasonal Sales Screen at Initial State
-![Seasonal Sales Screen at Initial State](https://raw.githubusercontent.com/SMITHsharon/seasonalSales/screens/screens/Seasonal%20Sales%20Init%20State%20Screen%20Grab.png)
+![Seasonal Sales Screen at Initial State](https://raw.githubusercontent.com/SMITHsharon/seasonalSales/productData/screens/Seasonal%20Sales%20Init%20State%20Screen%20Grab.png)
 
 
 #### Seasonal Sales Screen Upon User Selecting *Autumn*
-![Seasonal Sales Screen Upon User Selecting Autumn](https://raw.githubusercontent.com/SMITHsharon/seasonalSales/screens/screens/Season%20Sales%20Autumn%20Discounts%20Screen%20Grab.png)
+![Seasonal Sales Screen Upon User Selecting Autumn](https://raw.githubusercontent.com/SMITHsharon/seasonalSales/productData/screens/Seasonal%20Sales%20Autumn%20Discounts%20Screen%20Grab.png)
 
 
 ### Project Specs
