@@ -1,0 +1,58 @@
+
+body { 
+	background-color: lightcyan;
+	border: 3px solid grey;
+	border-radius: 15px;
+	margin: 5% 5%;
+	padding-bottom: 10%;
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+
+/*********************************************/
+/* flex specs
+/*********************************************/
+
+.sectionHeader {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	max-width: 80%;
+	margin: auto;
+}
+
+.thisDepartment {
+	border: 2px solid slategrey;
+	border-radius: 5%;
+	background-color: ivory;
+	width: 25%;
+	padding-left: 10px;
+}
+
+
+/*********************************************/
+/* text
+/*********************************************/
+
+#pageHead {
+	margin-top: 5%;
+}
+
+h1 {
+	text-align: center;
+}
+
+#selectElement {
+	margin-left: 45%;
+}
+
+.deptName {
+	font-weight: 900;
+	font-size: 1.2em;
+}
+
+.productSpecs {
+	padding-left: 20px;
+}
+
+
