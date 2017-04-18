@@ -17,32 +17,29 @@ Additionally, a `select` element is provided, giving the user the ability to sel
 
 ### Project Specs
 ##### Process XHR Requests
-- The two JSON representations were provided in files: `products.json`, and `categories.json`. 
-- Loaded both files via XHRs and stored the contents in two different JavaScript variables, `productsData` and `categoriesData`.
+- The two `JSON` representations are provided in files: `products.json`, and `categories.json`
+- Loads both files via `XHR`s and stores the contents in two different `JavaScript` variables, `productsData` and `categoriesData`
 
-##### Write the Data to the DOM
-- Displayed all of the products, grouped by category, and the respective prices.
-- Styling of the page output is discretionary; used `css flexbox`. 
+##### Writes the Data to the DOM
+- Displays all of the products, grouped by category, and the respective prices
+- Styling of the page output is discretionary; uses `css flexbox`
 
-##### Rewrite Data, Showing Discounted Prices for User-Selected Season
-- Added a `select` element listing the Seasons: *Winter*, *Autumn*, *Spring*.
-- Upon the user selecting a Season from the `select` element, the discounted prices for that Season are calculated (and rounded), and the new content is written to the DOM.  
+##### Rewrites Data, Showing Discounted Prices for User-Selected Season
+- Adds a `select` element listing the Seasons: *Winter*, *Autumn*, *Spring*
+- Upon the user selecting a Season from the `select` element, the discounted prices for that Season are calculated (and rounded), and the new content is written to the DOM
 
 
 ### Technologies Used
 - `html`
 - `css`
-- `javascript`
+- `JavaScript`
 - `XHR` and `JSON` request
->>>>>>> master
-
 
 ### How To View The Screen 
 #### (Node must be installed on your machine):
 ```
 git clone git@github.com:SMITHsharon/seasonalSales.git
 cd seasonal-sales
-npm install http-server -g
 http-server -p 8080
 ```
 
