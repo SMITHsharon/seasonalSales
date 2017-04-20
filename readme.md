@@ -35,15 +35,16 @@ Additionally, a `select` element is provided, giving the user the ability to sel
 - `JavaScript`
 - `XHR` and `JSON` request
 
+
 ### How To View The Screen 
 #### (Node must be installed on your machine):
 ```
 git clone git@github.com:SMITHsharon/seasonalSales.git
 cd seasonal-sales
 http-server -p 8080
+This will show in your browser at: http://localhost:8080
 ```
 
-This will show in your browser at: `http://localhost:8080`
 
 ### Contributor
 [Sharon Smith](https://github.com/SMITHsharon)
